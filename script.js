@@ -3,6 +3,7 @@ inputText.addEventListener('keyup', (e) =>{
       const display = document.getElementById('show')
       display.innerHTML = e.target.value
 })
+
 const colorChange = document.getElementById('btn')
 colorChange.addEventListener('click', (e) =>{
 
@@ -34,3 +35,13 @@ checkbox2.addEventListener('click', progressAction)
 checkbox3.addEventListener('click', progressAction)
 checkbox4.addEventListener('click', progressAction)
 
+const progressFill_2 = document.getElementsByClassName('progress-fill_2');
+
+const updateProgressBar = () => {
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollPercentage = (scrollTop / scrollHeight) * 100;
+      progressFill_2[0].style.width = `${scrollPercentage}%`;    
+  }
+
+  window.addEventListener('scroll', updateProgressBar);
